@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Авторизация завершена</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; margin-top: 50px; }
+        .code-box { background: #f4f4f4; padding: 20px; border-radius: 10px; display: inline-block; border: 2px solid #fe2c55; }
+    </style>
+</head>
+<body>
+    <h1>Авторизация прошла успешно!</h1>
+    <p>Скопируйте код ниже и отправьте его в чат:</p>
+    <div class="code-box">
+        <h2 id="display-code">Загрузка кода...</h2>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const code = urlParams.get('code');
+        if (code) {
+            document.getElementById('display-code').innerText = code;
+        } else {
+            document.getElementById('display-code').innerText = "Код не найден в ссылке";
+        }
+    </script>
+</body>
+</html>
